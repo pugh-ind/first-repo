@@ -1,0 +1,65 @@
+account id		3363-7742-2834
+
+account alias	pugh-ind
+
+root			ronald.j.pugh@comcast.net  #iForce4.7
+admin			pugh-ind-admin             #Tundra04
+
+
+https://github.com/pugh-ind/first-repo.git
+ronald.j.pugh@comcast.net #iForce4.7
+personal access token - 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
+
+
+ec2-44-208-24-129.compute-1.amazonaws.com
+
+puttygen ec2-keypair-20220804_1.pem -O private -o ec2-keypair-20220804_1.ppk
+chmod 400 *.ppk
+puttygen -L ec2-keypair-20220804_1.ppk
+
+sudo mkdir -p /local/data /local/dev /local/logs
+env > /local/logs/env.startup
+export BUCKET01=s3://pugh-ind-bucket-01
+
+sudo amazon-linux-extras install python3.8
+sudo yum install emacs
+sudo yum install git
+
+
+
+
+
+GIT NOTES - add files from Thinkpad, then pull files to ec2 instance
+
+ ThinkPad-T410:/local/pugh-ind/github/first-repo>
+ mkdir code
+ cp /local/rpugh/scripts/get_monthly_values.py ./code
+
+ git add --all
+
+ git commit -m "added python script to code directory"
+ git status -v
+
+ git remote add origin https://github.com/pugh-ind/first-repo.git
+
+ git push -u origin main
+   ThinkPad-T410:/local/pugh-ind/github/first-repo> git push -u origin main
+   Username for 'https://github.com': pugh-ind
+   Password for 'https://pugh-ind@github.com': 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
+
+   Enumerating objects: 5, done.
+   Counting objects: 100% (5/5), done.
+   Delta compression using up to 4 threads
+   Compressing objects: 100% (3/3), done.
+   Writing objects: 100% (4/4), 1.13 KiB | 1.13 MiB/s, done.
+   Total 4 (delta 0), reused 0 (delta 0)
+   To https://github.com/pugh-ind/first-repo.git
+      015a724..66523f4  main -> main
+   Branch 'main' set up to track remote branch 'main' from 'origin'.
+   ThinkPad-T410:/local/pugh-ind/github/first-repo>
+
+
+In /local/dev/first-repo
+
+sudo git init
+sudo git pull https://github.com/pugh-ind/first-repo.git
